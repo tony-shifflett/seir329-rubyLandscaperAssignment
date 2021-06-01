@@ -72,7 +72,12 @@ end
 # If true, puts a win message then return true
 # If false, puts the players $money total and tool and run game_loop()
 def win_conditions()
-
+    if $current_tool == 4 and $money >= 1000
+        puts ("You win, I guess. Nothing changes. Mowing is your life now")
+    else 
+        puts ("You currently have #{$money} currency. That's not nearly enough. Keep mowing")
+        game_loop
+    end
 end
 
 
