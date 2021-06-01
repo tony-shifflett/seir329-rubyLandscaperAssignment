@@ -18,15 +18,27 @@ $money = 0
 # - return that gets.chomp
 # This function does NOT have a test
 def start()
+    puts("Welcome to Landscaper! Navigate the post-apocalyptic landscape of the former United States by mowing grass. Spend the day mowing and earn currency with which to buy equipment in order to earn slightly more currency while spending your day mowing. Always be mowing! Which of the only two options you now have in life would you like to take? \n\n 1. Mow Grass \n 2. Buy Equipment")
+    return gets.chomp 
 
 end
+
 
 ## selection function should
 # - if user gets.chomp is 1, run the mow function
 # - if user gets.chomp is 2, run the upgrade function
 # - if anything else, text warning
 def selection(select)
-
+    puts select
+    if select == "1"
+        puts("hitting mow")
+        mow()
+    elsif select == "2"
+        puts("hitting upgrade")
+        upgrade()
+    else 
+        puts ("Mow and buy. Mow and buy. That's all you can do. Select again.")
+    end
 end
 
 
@@ -35,7 +47,7 @@ end
 # - should up income based on $current_tool &$tools list
 # - puts message
 def mow()
-
+    money = $money + tools[$current_tool][:income]
 end
 
 ## upgrade function
