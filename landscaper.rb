@@ -32,10 +32,10 @@ def selection(select)
     puts select
     if select == "1"
         puts("hitting mow")
-        mow()
+        mow
     elsif select == "2"
         puts("hitting upgrade")
-        upgrade()
+        upgrade
     else 
         puts ("Mow and buy. Mow and buy. That's all you can do. Select again.")
     end
@@ -47,7 +47,8 @@ end
 # - should up income based on $current_tool &$tools list
 # - puts message
 def mow()
-    money = $money + tools[$current_tool][:income]
+    $money = $money + $tools[$current_tool][:income]
+    puts "You've earned #{$tools[$current_tool][:income]}"
 end
 
 ## upgrade function
@@ -55,6 +56,12 @@ end
 # - if so upgrades tool by incrementing $current_tool and running win_conditions
 # - if not, puts message saying $money isn't enough
 def upgrade()
+    if $money >= $tools[$current_tool+1][:price]
+        $current_tool += 1
+        puts "You've upgraded to #{$tools[$current_tool][:name]}"
+    else 
+        puts("You're too broke. Keep mowing.")
+    end
 
 end
 
